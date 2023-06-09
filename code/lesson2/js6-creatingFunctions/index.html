@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function myFirstFunction() {
+    document.write("<h2>Hello World I am a function! Nice to meet you 🙂</h2>");
+}
+
+function greeting(personName) {
+    document.write("<h2>Hello " + personName + "</h2>");
+}
+
+function betterGreeting(personName) {
+    return "<h2>Hello " + personName + "</h2>";
+}
+
+function myPow(base, exponent) {
+    let result = 1;
+    for (let i = 0; i < exponent; i++) {
+        result = result * base;
+    }
+    return result;
+}
+
+const x = myPow(25, 5);
+const y = Math.sqrt(x);
+document.write(y);
+
+myFirstFunction();
+// EXERCISE
+// invoke the greeting functioin a few times
+// using a different name each time
+// greeting("Helder");
+// greeting("Bob");
+
+// const personName = "Juliet";
+// greeting(personName);
+
+const greetingH2 = betterGreeting("Bob");
+console.log(greetingH2);
+document.write(greetingH2);
+
+
+</script>
+</body>
+</html>

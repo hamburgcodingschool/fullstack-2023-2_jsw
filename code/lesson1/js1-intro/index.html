@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        h1 {
+            color: red;
+        }
+
+        a {
+            color: green;
+        }
+
+        .someClass {
+            background-color: aquamarine;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Hello I am a big Heading!!!!!</h1>
+    
+    <a href="gallery.html">gallery</a>
+    <a href="https://google.com" target="_blank">Some other website</a>
+
+    <!--
+        <a href="https://google.com">Google</a>
+    -->
+
+    <script>
+
+        const name = "HCS";
+        const url = "https://hamburgcodingschool.com";
+
+        document.write("<h2>Hello all!!!!!</h2>");
+        
+        // Concatenation is awesome!!!!!
+        const link = '<a class="someClass" href="' + url + '" target="_blank">' + name + '</a>';
+        document.write(link);
+        console.log(link);
+
+
+        const answer = "I am \"fine\"!";
+        document.write(answer);
+
+        const start = "<h1>Hello ";
+        const middle = "someone";
+        const ending = "!</h1> ";
+        
+        const finalSentence = start + middle + ending;
+        document.write(finalSentence);
+
+        const receiver = "class of 2023";
+        const greeting = "<h2>Hello " + receiver + "!</h2>";
+        
+        console.log(greeting);
+        document.write(greeting);
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        let x = 20;
+        console.log(x);
+
+        x = 30;
+        console.log(x);
+
+        x += 3; // same as `x = x + 3;`
+        x *= 2;
+        console.log(x);
+
+        // we declare a literal arrat by using []
+        // const numbers = [2, 4, 1, 10, 13, 4, 2, 1, 5];
+        const ages = [40, 22, 30, 21, 29, 42];
+
+        // document.write(ages[0] + "<br>");
+        // document.write(ages[1] + "<br>");
+        // document.write(ages[2] + "<br>");
+        // document.write(ages[3] + "<br>");
+        // document.write(ages[4] + "<br>");
+        // document.write(ages[5] + "<br>");
+
+        document.write("<ul>");
+        for (let i = 0; i < ages.length; i++) {
+            document.write("<li>" + ages[i] + "</li>");
+        }
+        document.write("</ul>");
+
+    </script>
+    
+</body>
+</html>

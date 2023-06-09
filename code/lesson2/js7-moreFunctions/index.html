@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// EXERCISES:
+// 1 - write a function that calculates the perimeter of a rectangle
+//     should take 2 arguments and return a value
+
+// 2 - write a function that calculates the area of a rectangle
+//     should take 2 arguments and return a value
+
+// 3 - write a function that calculates the perimeter of a square
+//     should take 1 arguments and return a value
+
+// 4 - write a function that calculates the area of a square
+//     should take 1 arguments and return a value
+
+// 5 - write a function that calculates the perimeter of a circle (circumference)
+//     should take 1 arguments and return a value
+
+// 6 - write a function that calculates the area of a circle
+//     should take 1 arguments and return a value
+
+function rectanglePerimeter(width, height) {
+    const result = width + width + height + height;
+    // const result = width * 2 + height * 2;
+    // const reuslt = (width + height) * 2;
+
+    return result;
+}
+
+function rectangleArea(width, height) {
+    return width * height;
+}
+
+function squarePerimeter(side) {
+    const result = rectanglePerimeter(side, side);
+    return result;
+}
+
+function squareArea(side) {
+    return rectangleArea(side, side);
+}
+
+function circlePerimeter(radius) {
+    return 2 * Math.PI * radius;
+}
+
+function circleArea(radius) {
+    return Math.PI * Math.pow(radius, 2);
+}
+
+document.write(Math.PI + "<br>");
+
+const a = 2;
+const b = 6;
+const perimeter = rectanglePerimeter(a, b);
+
+const text = "The perimeter of a " + a + " by " + b + " rectangle is " + perimeter;
+document.write(text + "<br>");
+
+</script>
+
+</body>
+</html>

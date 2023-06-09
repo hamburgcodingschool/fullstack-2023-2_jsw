@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Functions can also be called Methods
+        // For all intents and purposes in this class Function or Method
+        // means exactly the same thing
+
+        const number = 25;
+        const squareRoot = Math.sqrt(number);
+
+        document.write(squareRoot);
+        
+
+        document.write("<br>");
+
+        const result1 = Math.pow(25, 5);
+        const result2 = 25 * 25 * 25 * 25 * 25;
+
+        if (result1 == result2) {
+            document.write("<h1>THE SYSTEM WORKS!!!!!!</h1>");
+        }
+
+        const x = 43.45;
+        // 1 - PRINT THE ROUNDED VALUE
+
+        // 2 - PRINT THE ROUNDED VALUE, BUT ALWAYS ROUND UP
+
+        const roundedNumber = Math.round(x); 
+        document.write("Rounded Number: " + roundedNumber + "<br>");
+
+        const roundedUp = Math.ceil(x); 
+        document.write("Rounded Up Number: " + roundedUp + "<br>");
+
+        const randomNumber = Math.random();
+        document.write("Some Random Number: " + randomNumber + "<br>");
+    </script>
+
+
+
+
+</body>
+
+</html>

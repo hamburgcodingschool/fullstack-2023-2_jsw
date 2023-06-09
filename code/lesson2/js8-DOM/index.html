@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1 id="title">Document Object Model</h1>
+    <h2>Some smaller header</h2>
+
+    <ul>
+        <li>Apples</li>
+        <li>Oranges</li>
+        <li>Bananas</li>
+    </ul>
+
+    <button id="buttonClickMe">Click me!!!!!</button>
+
+    <script>
+
+
+        function clickHandler() {
+            // getElementById returns a DOM object
+            // a representation of the tag it found by using the Id
+            const title = document.getElementById("title");
+            title.style.backgroundColor = "red";
+            title.innerText = "I changed it!!!!";
+        }
+
+        const buttonClickMe = document.getElementById("buttonClickMe");
+        buttonClickMe.addEventListener("click", clickHandler);
+
+
+    </script>
+</body>
+</html>
