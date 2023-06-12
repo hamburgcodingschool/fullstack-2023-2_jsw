@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="counterBox">0</p>
+    <button id="buttonPrevious">Previous</button>
+    <button id="buttonNext">Next</button>
+
+    <script>
+        const counterBox = document.getElementById("counterBox");
+        const buttonPrevious = document.getElementById("buttonPrevious");
+        const buttonNext = document.getElementById("buttonNext");
+
+        let counter = 0;
+
+        buttonPrevious.addEventListener("click", function () {
+            counter--;
+            if (counter < 0) {
+                counter = 10;
+            }
+            counterBox.innerText = counter;
+        });
+
+        buttonNext.addEventListener("click", function () {
+            counter++;
+            if (counter > 10) {
+                counter = 0;
+            }
+            counterBox.innerText = counter;
+        });
+
+
+
+        
+
+    </script>
+</body>
+</html>
