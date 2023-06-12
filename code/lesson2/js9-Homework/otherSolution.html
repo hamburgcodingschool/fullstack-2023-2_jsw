@@ -24,28 +24,25 @@
 
         let counter = 0;
 
+        function updateUI() {
+            spanCounter.innerText = counter;
+            
+            buttonAdd.disabled = counter == 10;
+            buttonSubtract.disabled = counter == 0;
+        }
+
         function buttonSubtractClickHandler() {
             if (counter > 0) {
                 counter--;
             }
-            spanCounter.innerText = counter;
-            buttonAdd.disabled = false;
-
-            if (counter == 0) {
-                buttonSubtract.disabled = true;
-            }
+            updateUI();
         }
 
         function buttonAddClickHandler() {
             if (counter < 10) {
                 counter++;
             }
-            spanCounter.innerText = counter;
-            buttonSubtract.disabled = false;
-
-            if (counter == 10) {
-                buttonAdd.disabled = true;
-            }
+            updateUI();
         }
 
         buttonSubtract.addEventListener("click", buttonSubtractClickHandler);

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+button:hover {background-color: #3e8e41}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+button:disabled {
+    background-color: #666;
+    box-shadow: 0 9px #999;
+    transform: none;
+    cursor: auto;
+}
+
+#container {
+    padding: 50px;
+    display: flex;
+    margin: auto;
+    width: 400px;
+    flex-direction: column;
+    background-color: #EBEBEB;
+    border-radius: 20px;
+}
+
+#counterBox {
+    text-align: center;
+    font-size: 40px;
+}
+
+#buttons {
+    text-align: center;
+}
+
+#progressBox {
+    margin-top: 40px;
+    width: 100%;
+    height: 40px;
+    background-color: navajowhite;
+}
+
+#progressBar {
+    width: 10%;
+    height: 100%;
+    background-color: red;
+    transition: 400ms;
+}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="counterBox">1</div>
+        <div id="buttons">
+            <button id="buttonDown" disabled>-</button>
+            <button id="buttonUp">+</button>
+        </div>
+        <div id="progressBox">
+            <div id="progressBar"></div>
+        </div>
+    </div>
+
+    <script>
+        const buttonUp = document.getElementById("buttonUp");
+        const buttonDown = document.getElementById("buttonDown");
+        const counterBox = document.getElementById("counterBox");
+        const progressBar = document.getElementById("progressBar");
+
+        let counter = 1;
+
+        function updateVisuals() {
+            counterBox.innerText = counter;
+            
+            buttonDown.disabled = counter === 1;
+            buttonUp.disabled = counter === 10;
+
+            progressBar.style.width = counter * 10 + "%";
+            
+            if (counter >= 8) {
+                progressBar.style.backgroundColor = "green";
+            } else if (counter >= 5) {
+                progressBar.style.backgroundColor = "yellow";
+            } else {
+                progressBar.style.backgroundColor = "red";
+            }
+            
+        }
+
+        buttonUp.addEventListener("click", function() {
+            if (counter < 10) {
+                counter++;
+            }
+            updateVisuals();
+        });
+
+        buttonDown.addEventListener("click", function() {
+            if (counter > 1) {
+                counter--;
+            }
+            updateVisuals();
+        });
+    </script>
+</body>
+</html>
