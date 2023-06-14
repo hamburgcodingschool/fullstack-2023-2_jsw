@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
     <style>
         #colorBox {
             width: 200px;
@@ -15,7 +16,8 @@
 </head>
 <body>
     <div id="colorBox"></div>
-    <button>Next</button>
+    <button id="buttonPrevious">Previous</button>
+    <button id="buttonNext">Next</button>
 
     <script>
         // Homework 1:
@@ -23,6 +25,43 @@
 
         // Homework 2: (optional)
         // Add a previous button and make it go in the opposite direction
+
+        function updateVisuals() {
+            colorBox.innerText = counter + " ->> " + colors[counter];
+            colorBox.style.backgroundColor = colors[counter];
+        }
+
+        const colorBox = document.getElementById("colorBox");
+        const buttonPrevious = document.getElementById("buttonPrevious");
+        const buttonNext = document.getElementById("buttonNext");
+
+        const colors = [
+            "red",
+            "green",
+            "blue"
+        ];
+
+        let counter = 0;
+       
+        updateVisuals();
+
+
+        buttonPrevious.addEventListener("click", function() {
+            counter--;
+            if (counter < 0) {
+                counter = colors.length - 1;
+            }
+            updateVisuals();
+
+        });
+
+        buttonNext.addEventListener("click", function() {
+            counter++;
+            if (counter >= colors.length) {
+                counter = 0;
+            }
+            updateVisuals();
+        });
     </script>
 </body>
 </html>
