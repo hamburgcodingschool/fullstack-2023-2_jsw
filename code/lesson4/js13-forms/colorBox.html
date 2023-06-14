@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #colorBox {
+            width: 200px;
+            height: 200px;
+            border: solid 2px black;
+        }
+    </style>
+</head>
+<body>
+    <select id="selectColor">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="#000">Black</option>
+        <option value="#0512DF">Blueish...</option>
+    </select>
+    <!-- <button id="buttonChangeColor">Change Color</button> -->
+    <div id="colorBox"></div>
+
+    <script>
+         // Exercise 1
+        // Create a square box <div>
+        // create a select with colors
+        // when clicking a button, change the color of the div to the selected Color
+
+        // Exeecise 2
+        // Same as above, but without the button
+        // change the color of the dive as soon as the selection option changes
+
+        const selectColor = document.getElementById("selectColor");
+        const colorBox = document.getElementById("colorBox");
+        // const buttonChangeColor = document.getElementById("buttonChangeColor");
+
+        selectColor.addEventListener("change", function() {
+            colorBox.innerText = selectColor.value;
+            colorBox.style.backgroundColor = selectColor.value;
+        });
+
+        // HOMEWORK:
+        // create a text input element
+        // and a DIV
+        // everytime the user writes in the text input, the div updates the number of characters
+        
+
+    </script>
+</body>
+</html>

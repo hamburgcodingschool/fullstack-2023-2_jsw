@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="selectFruit">
+        <option>Oranges</option>
+        <option>Apples</option>
+        <option>Bananas</option>
+        <option>Pears</option>
+    </select>
+
+    <input id="inputName" placeholder="Name">
+    
+    <button id="buttonHello">Say Hello</button>
+
+    <div id="greetingBox"></div>
+
+    <script>
+        // When the user clicks the Say Hello button
+        // write a greeting in the Div
+        const buttonHello = document.getElementById("buttonHello");
+        const greetingBox = document.getElementById("greetingBox");
+        const inputName = document.getElementById("inputName");
+        const selectFruit = document.getElementById("selectFruit");
+
+        buttonHello.addEventListener("click", function() {
+
+            greetingBox.innerText = "Hello " + inputName.value + " your name has " + inputName.value.length + " characters and I heard you like " + selectFruit.value;
+            
+        });
+
+    </script>
+
+    
+</body>
+</html>
