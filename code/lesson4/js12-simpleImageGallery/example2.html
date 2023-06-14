@@ -6,41 +6,39 @@
     <title>Document</title>
     
     <style>
-        #colorBox {
+        #imageBox {
             width: 200px;
             height: 200px;
             border: solid 1px black;
-            background-color: red;
+            background-color: aliceblue;
+            background-image: url(https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
         }
+        
     </style>
 </head>
 <body>
-    <div id="colorBox">
-        
-    </div>
+    <div id="imageBox"></div>
     <button id="buttonPrevious">Previous</button>
     <button id="buttonNext">Next</button>
 
     <script>
-        // Homework 1:
-        // When clicking Next the box should change Color R->G->B->R->...
-
-        // Homework 2: (optional)
-        // Add a previous button and make it go in the opposite direction
-
         function updateVisuals() {
-            colorBox.innerText = counter + " ->> " + colors[counter];
-            colorBox.style.backgroundColor = colors[counter];
+            imageBox.style.backgroundImage = "url(" + images[counter] + ")";
         }
 
-        const colorBox = document.getElementById("colorBox");
+        const imageBox = document.getElementById("imageBox");
         const buttonPrevious = document.getElementById("buttonPrevious");
         const buttonNext = document.getElementById("buttonNext");
 
-        const colors = [
-            "red",
-            "green",
-            "blue"
+        const images = [
+            "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+            "https://static.wikia.nocookie.net/desimpsons/images/4/4d/MargeSimpson.png",
+            "https://static.simpsonswiki.com/images/thumb/6/65/Bart_Simpson.png/200px-Bart_Simpson.png",
+            "https://upload.wikimedia.org/wikipedia/en/e/ec/Lisa_Simpson.png",
+            "https://upload.wikimedia.org/wikipedia/en/9/9d/Maggie_Simpson.png"
         ];
 
         let counter = 0;
@@ -50,15 +48,14 @@
         buttonPrevious.addEventListener("click", function() {
             counter--;
             if (counter < 0) {
-                counter = colors.length - 1;
+                counter = images.length - 1;
             }
             updateVisuals();
-
         });
 
         buttonNext.addEventListener("click", function() {
             counter++;
-            if (counter >= colors.length) {
+            if (counter >= images.length) {
                 counter = 0;
             }
             updateVisuals();
