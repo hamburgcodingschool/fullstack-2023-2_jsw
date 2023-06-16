@@ -11,9 +11,9 @@
     </style>
 </head>
 <body>
-    <div>0/255</div>
-    <textarea></textarea>
-    <button>SEND</button>
+    <div id="counterBox">0/0</div>
+    <textarea id="messageBox" maxlength="13"></textarea>
+    <button id="buttonSend">SEND</button>
 
     <script>
 // EXERCISE 1:
@@ -24,6 +24,35 @@
 
 // EXERCISE 3:
 // Don't allow more than 255 characters to be written
+        function updateCounterBox() {
+            counterBox.innerHTML = `${messageBox.value.length}/${maxChars}`;
+
+            if (messageBox.value.length >= 40) {
+                buttonSend.disabled = false;
+            } else {
+                buttonSend.disabled = true;
+            }
+
+            // const name = "Helder";
+            // const age = 42;
+
+            // const x = "Hello I am " + name + " and I am " + age + " years old!";
+            // const z = `Hello I am ${name} and I am ${age} years old!`;
+        }
+
+        const messageBox = document.getElementById("messageBox");
+        const counterBox = document.getElementById("counterBox");
+        const buttonSend = document.getElementById("buttonSend");
+
+        const maxChars = 255;
+        messageBox.maxLength = maxChars;
+
+        updateCounterBox();
+
+        messageBox.addEventListener("input", function() {
+            updateCounterBox();
+        });
+
     </script>
 </body>
 </html>
