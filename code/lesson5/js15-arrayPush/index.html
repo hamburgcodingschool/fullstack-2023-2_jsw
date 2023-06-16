@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="inputName">
+    <button id="buttonAdd">ADD</button>
+    <ul id="listNames">        
+            
+    </ul>
+    
+    <script>
+        function updateList() {
+            listNames.innerHTML = "";
+            for (let i = 0; i < names.length; i++) {
+                listNames.innerHTML += `<li>${names[i]}</li>`;
+            }
+        }
+
+        const names = ["Johan", "Maggie", "Martha", "lalalala"];
+
+        const inputName = document.getElementById("inputName");
+        const buttonAdd = document.getElementById("buttonAdd");
+        const listNames = document.getElementById("listNames");
+
+        updateList();
+
+        buttonAdd.addEventListener("click", function() {
+            const name = inputName.value;
+            names.push(name);
+
+            // SOLUTION 1
+            // listNames.innerHTML += `<li>${name}</li>`;
+
+            // SOLUTION 2
+            updateList();
+
+        });    
+
+    </script>
+    
+</body>
+</html>
