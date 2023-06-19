@@ -11,13 +11,54 @@
             display: flex;
             gap: 20px;
             justify-content: space-around;
+            flex-wrap: wrap;
 
         }
 
-        #peopleWrapper > div {
+        #peopleWrapper > .personCard {
+            position: relative;
+            overflow: hidden;
+
+            flex: 1 1 100%;
+            
+            background-color: aliceblue;
+
+            background-image: url(https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            min-height: 200px;
+        }
+
+        .personCard > .content {
+            background-color: rgba(255, 255, 255, 0.7);
             width: 100%;
+            height: 100%;
+
             padding: 20px;
-            background-color: antiquewhite;
+            box-sizing: border-box;
+
+            position: absolute;
+            top: 100%;
+            transition: 300ms;
+        }
+
+        .personCard:hover > .content {
+            top: 0;
+        }
+
+        @media screen and (min-width: 600px) {
+            #peopleWrapper > .personCard {
+                flex: 1 1 30%;
+                max-width: 250px;
+            }
+        }
+
+        @media screen and (min-width: 1000px) {
+            #peopleWrapper > .personCard {
+                flex: 1 1 20%;
+                
+            }
         }
     </style>
 </head>
@@ -39,13 +80,15 @@
         const person1 = {
             name: "Richard",
             age: 21,
-            homeTown: "Somewhere in Hungary"
+            homeTown: "Somewhere in Hungary",
+            image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png"
         };
 
         const person2 = {
             name: "Shivani",
             age: 29,
-            homeTown: "Memphis"
+            homeTown: "Memphis",
+            image: "https://static.wikia.nocookie.net/desimpsons/images/4/4d/MargeSimpson.png"
         };
 
         const people = [
@@ -54,34 +97,38 @@
             {
                 name: "Martin",
                 age: 40,
-                homeTown: "Ravensburg"
+                homeTown: "Ravensburg",
+                image: "https://static.simpsonswiki.com/images/thumb/6/65/Bart_Simpson.png/200px-Bart_Simpson.png"
             },
             {
                 name: "Helder",
                 age: 42,
-                homeTown: "Porto"
+                homeTown: "Porto",
+                image: "https://upload.wikimedia.org/wikipedia/en/e/ec/Lisa_Simpson.png"
             },
             {
                 name: "Saron",
                 age: 22,
-                homeTown: "Hamburg"
+                homeTown: "Hamburg",
+                image: "https://upload.wikimedia.org/wikipedia/en/9/9d/Maggie_Simpson.png"
             },
             {
                 name: "Lisa",
                 age: 30,
-                homeTown: "Berlin"
+                homeTown: "Berlin",
+                image: "https://upload.wikimedia.org/wikipedia/en/8/80/Moe_Szyslak.png"
             }
         ];
 
         console.log(people[2].homeTown);
 
-        // 1 - 
-        // use a loop to console log the name and age of everyone in the array
-        // but not the town...
+        // // 1 - 
+        // // use a loop to console log the name and age of everyone in the array
+        // // but not the town...
 
-        // 2 -
-        // create a nice little webpage
-        // with everyone's info card (be as visually creative as you want with CSS)
+        // // 2 -
+        // // create a nice little webpage
+        // // with everyone's info card (be as visually creative as you want with CSS)
 
         const peopleWrapper = document.getElementById("peopleWrapper");
         const buttonLoad = document.getElementById("buttonLoad");
@@ -90,12 +137,13 @@
             
             peopleWrapper.innerHTML = "";
             for (let i = 0; i < people.length; i++) {
-                console.log(people[i]);
                 const newDiv = `
-                    <div>
-                        ${people[i].name}
-                        <br>
-                        ${people[i].homeTown}
+                    <div class="personCard" style="background-image: url(${people[i].image})">
+                        <div class="content">
+                            <h3>${people[i].name}</h3>
+                            <p>age: ${people[i].age}</p>
+                            <p>home town: ${people[i].homeTown}</p>
+                        </div>
                     </div>
                 `;
                 peopleWrapper.innerHTML += newDiv;

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="listNames"></ul>
+    <button id="buttonLoadNames">Load Names</button>
+
+    <div>
+        Name: not yet
+        <br>
+        Age: later
+        <br>
+        Home Town: some place not here...
+    </div>
+    <script>
+        const people = [
+            {
+                name: "Richard",
+                age: 21,
+                homeTown: "Somewhere in Hungary",
+                image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png"
+            },
+            {
+                name: "Shivani",
+                age: 29,
+                homeTown: "Memphis",
+                image: "https://static.wikia.nocookie.net/desimpsons/images/4/4d/MargeSimpson.png"
+            },
+            {
+                name: "Martin",
+                age: 40,
+                homeTown: "Ravensburg",
+                image: "https://static.simpsonswiki.com/images/thumb/6/65/Bart_Simpson.png/200px-Bart_Simpson.png"
+            },
+            {
+                name: "Helder",
+                age: 42,
+                homeTown: "Porto",
+                image: "https://upload.wikimedia.org/wikipedia/en/e/ec/Lisa_Simpson.png"
+            },
+            {
+                name: "Saron",
+                age: 22,
+                homeTown: "Hamburg",
+                image: "https://upload.wikimedia.org/wikipedia/en/9/9d/Maggie_Simpson.png"
+            },
+            {
+                name: "Lisa",
+                age: 30,
+                homeTown: "Berlin",
+                image: "https://upload.wikimedia.org/wikipedia/en/8/80/Moe_Szyslak.png"
+            }
+        ];
+        
+        const listNames = document.querySelector("#listNames");
+        const buttonLoadNames = document.querySelector("#buttonLoadNames");
+
+        buttonLoadNames.addEventListener("click", function() {
+            listNames.innerHTML = "";
+            for (let i = 0; i < people.length; i++) {
+                listNames.innerHTML += `<li>${people[i].name}</li>`;
+            }
+
+            const lis = document.querySelectorAll("#listNames > li");
+            for (let i = 0; i < lis.length; i++) {
+                
+                lis[i].addEventListener("click", function() {
+                    alert("YOU CLICKED INDEX " + i);
+                });
+            }
+        });
+
+        
+
+        
+
+    </script>
+</body>
+</html>
