@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #peopleWrapper {
+            background-color: aqua;
+            margin: 20px 5% 0;
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+
+        }
+
+        #peopleWrapper > div {
+            width: 100%;
+            padding: 20px;
+            background-color: antiquewhite;
+        }
+    </style>
 </head>
 <body>
+    <div id="peopleWrapper">
+        no people here yet...
+    </div>
+    <button id="buttonLoad">Load People</button>
     <script>
         // SIMPLE JS OBJECTS
         
@@ -62,6 +82,26 @@
         // 2 -
         // create a nice little webpage
         // with everyone's info card (be as visually creative as you want with CSS)
+
+        const peopleWrapper = document.getElementById("peopleWrapper");
+        const buttonLoad = document.getElementById("buttonLoad");
+
+        buttonLoad.addEventListener("click", function() {
+            
+            peopleWrapper.innerHTML = "";
+            for (let i = 0; i < people.length; i++) {
+                console.log(people[i]);
+                const newDiv = `
+                    <div>
+                        ${people[i].name}
+                        <br>
+                        ${people[i].homeTown}
+                    </div>
+                `;
+                peopleWrapper.innerHTML += newDiv;
+            }
+
+        });
     </script>
 </body>
 </html>
