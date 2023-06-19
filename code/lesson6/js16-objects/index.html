@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // SIMPLE JS OBJECTS
+        
+        // Values:
+        // - Numbers      34     45.4
+        // - Strings      "hello"    'goodbye'   `template literal stuff`
+        // - Booleans     true         false
+        // - Arrays       [ value, ... ]
+        // - Objects      { "key": value, ... }
+
+        const person1 = {
+            name: "Richard",
+            age: 21,
+            homeTown: "Somewhere in Hungary"
+        };
+
+        const person2 = {
+            name: "Shivani",
+            age: 29,
+            homeTown: "Memphis"
+        };
+
+        const people = [
+            person1,
+            person2,
+            {
+                name: "Martin",
+                age: 40,
+                homeTown: "Ravensburg"
+            },
+            {
+                name: "Helder",
+                age: 42,
+                homeTown: "Porto"
+            },
+            {
+                name: "Saron",
+                age: 22,
+                homeTown: "Hamburg"
+            },
+            {
+                name: "Lisa",
+                age: 30,
+                homeTown: "Berlin"
+            }
+        ];
+
+        console.log(people[2].homeTown);
+
+    </script>
+</body>
+</html>
