@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #listNames > li {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <ul id="listNames"></ul>
     <button id="buttonLoadNames">Load Names</button>
 
     <div>
-        Name: not yet
+        Name: <span id="spanName">not yet</span>
         <br>
-        Age: later
+        Age: <span id="spanAge">later</span>
         <br>
-        Home Town: some place not here...
+        Home Town: <span id="spanHomeTown">...</span>
     </div>
     <script>
         const people = [
@@ -58,25 +65,34 @@
         
         const listNames = document.querySelector("#listNames");
         const buttonLoadNames = document.querySelector("#buttonLoadNames");
+        
+        const spanName = document.querySelector("#spanName");
+        const spanAge = document.querySelector("#spanAge");
+        const spanHomeTown = document.querySelector("#spanHomeTown");
 
         buttonLoadNames.addEventListener("click", function() {
             listNames.innerHTML = "";
             for (let i = 0; i < people.length; i++) {
                 listNames.innerHTML += `<li>${people[i].name}</li>`;
             }
-
+            
             const lis = document.querySelectorAll("#listNames > li");
+            console.log(lis);
+
             for (let i = 0; i < lis.length; i++) {
-                
+                console.log("I'm gonna add an event Listener...");
+                console.log("💩");
                 lis[i].addEventListener("click", function() {
-                    alert("YOU CLICKED INDEX " + i);
+                    // alert(i);
+
+                    const clickedPerson = people[i];
+
+                    spanName.innerText = clickedPerson.name;
+                    spanAge.innerText = clickedPerson.age;
+                    spanHomeTown.innerText = clickedPerson.homeTown;
                 });
             }
         });
-
-        
-
-        
 
     </script>
 </body>
