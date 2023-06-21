@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #superBox {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+
+            border: dashed 10px black;
+        }
+
+        #subBox {
+            position: absolute;
+            left: 300px;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+
+            border: dashed 10px green;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="superBox">
+        <div id="subBox"></div>
+    </div>
+
+    <script>
+        const superBox = document.querySelector("#superBox");
+        const subBox = document.querySelector("#subBox");
+        
+        superBox.addEventListener("click", function(event) {
+            if (event.target == superBox) {
+                alert("SUPER BOX");
+            } 
+            if (event.target == subBox) {
+                alert("sub BOX");
+            } 
+            console.log(event);
+        });
+
+    </script>
+
+</body>
+</html>

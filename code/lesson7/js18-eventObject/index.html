@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #letterButtonBox {
+            width: 80%;
+            margin: 0 auto;
+
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #letterButtonBox > div {            
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+
+        }
+
+        #letterButtonBox button {
+            width: 35px;
+            height: 35px;
+
+            background-color: aliceblue;
+            border: solid 5px darkslateblue;
+            border-radius: 10px;
+
+            cursor: pointer;
+            box-shadow: 5px 5px 10px grey;
+        }
+
+        #letterButtonBox button:hover {
+            background-color: aqua;
+        }
+
+        #letterButtonBox button:active {
+            box-shadow: none;
+            translate: 2px 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wordBox"></div>
+    <div id="choiceBox">choose a letter...</div>
+    
+    <div id="letterButtonBox">
+        <div>
+            <button id="buttonA">A</button>
+            <button id="buttonB">B</button>
+            <button id="buttonC">C</button>
+            <button id="buttonD">D</button>
+            <button id="buttonE">E</button>
+            <button id="buttonF">F</button>
+            <button id="buttonG">G</button>
+        </div>
+        <div>
+            <button id="buttonH">H</button>
+            <button id="buttonI">I</button>
+            <button id="buttonJ">J</button>
+            <button id="buttonK">K</button>
+            <button id="buttonL">L</button>
+            <button id="buttonM">M</button>
+        </div>
+        <div>
+            <button id="buttonN">N</button>
+            <button id="buttonO">O</button>
+            <button id="buttonP">P</button>
+            <button id="buttonQ">Q</button>
+            <button id="buttonR">R</button>
+            <button id="buttonS">S</button>
+            <button id="buttonT">T</button>
+        </div>
+        <div>
+            <button id="buttonU">U</button>
+            <button id="buttonV">V</button>
+            <button id="buttonW">W</button>
+            <button id="buttonX">X</button>
+            <button id="buttonY">Y</button>
+            <button id="buttonZ">Z</button>
+        </div>
+    </div>
+
+    <script>
+        const buttonA = document.querySelector("#buttonA");
+        const buttonB = document.querySelector("#buttonB");
+        const buttonC = document.querySelector("#buttonC");
+        const buttonD = document.querySelector("#buttonD");
+        const buttonE = document.querySelector("#buttonE");
+        const buttonF = document.querySelector("#buttonF");
+        const buttonG = document.querySelector("#buttonG");
+        const buttonH = document.querySelector("#buttonH");
+        const buttonI = document.querySelector("#buttonI");
+        const buttonJ = document.querySelector("#buttonJ");
+        const buttonK = document.querySelector("#buttonK");
+        const buttonL = document.querySelector("#buttonL");
+        const buttonM = document.querySelector("#buttonM");
+        const buttonN = document.querySelector("#buttonN");
+        const buttonO = document.querySelector("#buttonO");
+        const buttonP = document.querySelector("#buttonP");
+        const buttonQ = document.querySelector("#buttonQ");
+        const buttonR = document.querySelector("#buttonR");
+        const buttonS = document.querySelector("#buttonS");
+        const buttonT = document.querySelector("#buttonT");
+        const buttonU = document.querySelector("#buttonU");
+        const buttonV = document.querySelector("#buttonV");
+        const buttonW = document.querySelector("#buttonW");
+        const buttonX = document.querySelector("#buttonX");
+        const buttonY = document.querySelector("#buttonY");
+        const buttonZ = document.querySelector("#buttonZ");
+
+        const choiceBox = document.querySelector("#choiceBox");
+        const wordBox = document.querySelector("#wordBox");
+
+        const gamePhrase = "Helder Augusto Pereira";
+        wordBox.innerText = gamePhrase;
+
+        function clickHandler(event) {
+            console.log(event);
+
+            const letter = event.target.innerText;
+
+            choiceBox.innerText = letter;
+
+            if (gamePhrase.toUpperCase().includes(letter)) {
+                choiceBox.innerText += ": it exists";
+            } else {
+                choiceBox.innerText += ": you chose poorly";
+            }
+
+            // if (event.target.innerText == "H" ||
+            //     event.target.innerText == "E" ||
+            //     event.target.innerText == "L" ||
+            //     event.target.innerText == "O" ||
+            //     event.target.innerText == "W" ||
+            //     event.target.innerText == "R" ||
+            //     event.target.innerText == "D") {
+                
+            //     choiceBox.innerText += ": it exists";
+
+            // } else {
+            //     choiceBox.innerText += ": you chose poorly";
+            // }
+        }
+
+        buttonA.addEventListener("click", clickHandler);
+        buttonB.addEventListener("click", clickHandler);
+        buttonC.addEventListener("click", clickHandler);
+        buttonC.addEventListener("click", clickHandler);
+        buttonD.addEventListener("click", clickHandler);
+        buttonE.addEventListener("click", clickHandler);
+        buttonF.addEventListener("click", clickHandler);
+        buttonG.addEventListener("click", clickHandler);
+        buttonH.addEventListener("click", clickHandler);
+        buttonI.addEventListener("click", clickHandler);
+        buttonJ.addEventListener("click", clickHandler);
+        buttonK.addEventListener("click", clickHandler);
+        buttonA.addEventListener("click", clickHandler);
+        buttonL.addEventListener("click", clickHandler);
+        buttonM.addEventListener("click", clickHandler);
+        buttonN.addEventListener("click", clickHandler);
+        buttonO.addEventListener("click", clickHandler);
+        buttonP.addEventListener("click", clickHandler);
+        buttonQ.addEventListener("click", clickHandler);
+        buttonR.addEventListener("click", clickHandler);
+        buttonS.addEventListener("click", clickHandler);
+        buttonT.addEventListener("click", clickHandler);
+        buttonU.addEventListener("click", clickHandler);
+        buttonV.addEventListener("click", clickHandler);
+        buttonW.addEventListener("click", clickHandler);
+        buttonX.addEventListener("click", clickHandler);
+        buttonY.addEventListener("click", clickHandler);
+        buttonZ.addEventListener("click", clickHandler);
+        
+        
+
+    </script>
+</body>
+</html>

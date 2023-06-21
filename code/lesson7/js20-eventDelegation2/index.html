@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            background-color: red;
+        }
+
+        li:nth-child(odd) {
+            background-color: blue;
+        }
+
+        li:nth-child(even) {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <ul id="listNames">
+        <li>Bob</li>
+        <li>Joe</li>
+        <li>Rob</li>
+    </ul>
+
+    <script>
+        const listNames = document.querySelector("#listNames");
+
+        listNames.addEventListener("click", function(event) {
+            if (event.target.tagName != "LI") {
+                console.log("you did not click a LI!");
+                return;
+            }
+            
+            console.log(event);
+            alert(event.target.innerHTML);
+        });
+
+
+        // HOMEWORK
+        // 1 = Rewrite JS17 using event Delegation instead
+        // 1 = Rewrite JS18 using event Delegation instead
+    </script>
+</body>
+</html>
