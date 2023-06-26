@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #letterButtonBox {
+            width: 80%;
+            margin: 0 auto;
+
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #letterButtonBox > div {            
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+
+        }
+
+        #letterButtonBox button {
+            width: 35px;
+            height: 35px;
+
+            background-color: aliceblue;
+            border: solid 5px darkslateblue;
+            border-radius: 10px;
+
+            cursor: pointer;
+            box-shadow: 5px 5px 10px grey;
+        }
+
+        #letterButtonBox button:hover {
+            background-color: aqua;
+        }
+
+        #letterButtonBox button:active {
+            box-shadow: none;
+            translate: 2px 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wordBox"></div>
+    <div id="choiceBox">choose a letter...</div>
+    
+    <div id="letterButtonBox">
+        <div>
+            <button id="buttonA">A</button>
+            <button id="buttonB">B</button>
+            <button id="buttonC">C</button>
+            <button id="buttonD">D</button>
+            <button id="buttonE">E</button>
+            <button id="buttonF">F</button>
+            <button id="buttonG">G</button>
+        </div>
+        <div>
+            <button id="buttonH">H</button>
+            <button id="buttonI">I</button>
+            <button id="buttonJ">J</button>
+            <button id="buttonK">K</button>
+            <button id="buttonL">L</button>
+            <button id="buttonM">M</button>
+        </div>
+        <div>
+            <button id="buttonN">N</button>
+            <button id="buttonO">O</button>
+            <button id="buttonP">P</button>
+            <button id="buttonQ">Q</button>
+            <button id="buttonR">R</button>
+            <button id="buttonS">S</button>
+            <button id="buttonT">T</button>
+        </div>
+        <div>
+            <button id="buttonU">U</button>
+            <button id="buttonV">V</button>
+            <button id="buttonW">W</button>
+            <button id="buttonX">X</button>
+            <button id="buttonY">Y</button>
+            <button id="buttonZ">Z</button>
+        </div>
+    </div>
+
+    <script>
+        const letterButtonBox = document.querySelector("#letterButtonBox");
+        const choiceBox = document.querySelector("#choiceBox");
+        const wordBox = document.querySelector("#wordBox");
+
+        const gamePhrase = "Helder Augusto Pereira";
+
+        wordBox.innerText = gamePhrase;
+
+        letterButtonBox.addEventListener("click", function (event) {
+
+            if (event.target.tagName != "BUTTON") {
+                return;
+            }
+
+            console.log(event);
+
+            const letter = event.target.innerText;
+
+            choiceBox.innerText = letter;
+
+            if (gamePhrase.toUpperCase().includes(letter)) {
+                choiceBox.innerText += ": it exists";
+            } else {
+                choiceBox.innerText += ": you chose poorly";
+            }
+        });        
+
+    </script>
+</body>
+</html>

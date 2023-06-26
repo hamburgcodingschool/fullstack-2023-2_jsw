@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button1">BUTTON 1</button>
+    <script>
+        const button1 = document.querySelector("#button1");
+        button1.addEventListener("click", function() {
+            
+            alert("YAY YOU CLICKED") 
+
+        });
+
+        let x = 2;
+        
+        
+
+        function aPromisingTimeout(mili) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function () {
+                    resolve();
+                }, mili);   
+            });
+        }
+
+
+        aPromisingTimeout(2000).then(function() {
+
+        });
+
+        
+
+        // ASYNCHRONOUS
+        // SYNCHRONOUS
+
+        
+
+        
+
+    </script>
+
+
+</body>
+</html>

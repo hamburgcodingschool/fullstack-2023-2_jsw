@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="pokeList"></ul>
+    <script>
+
+        const pokeList = document.querySelector("#pokeList");
+
+        fetch("https://pokeapi.co/api/v2/pokemon").then(function(response) {
+            
+            response.json().then(function(result) {
+                
+                console.log(result.results);
+                const pokeArray = result.results;
+                
+                for (let i = 0; i < pokeArray.length; i++) {
+                    console.log(pokeArray[i].name);
+                    pokeList.innerHTML += `<li>${pokeArray[i].url}</li>`
+                }
+            })
+        });
+        
+        // HOMEWORK
+        // Explore the Pokemon API
+
+        // Create a page
+        // with some information (not all of it) about your favorite Pokemon
+
+    </script>
+</body>
+</html>

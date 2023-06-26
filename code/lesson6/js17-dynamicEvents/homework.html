@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #listNames > li {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul id="listNames">
+    </ul>
+    <button id="buttonLoadNames">Load Names</button>
+
+    <div>
+        Name: <span id="spanName">not yet</span>
+        <br>
+        Age: <span id="spanAge">later</span>
+        <br>
+        Home Town: <span id="spanHomeTown">...</span>
+    </div>
+    <script>
+        const people = [
+            {
+                name: "Richard",
+                age: 21,
+                homeTown: "Somewhere in Hungary",
+                image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png"
+            },
+            {
+                name: "Shivani",
+                age: 29,
+                homeTown: "Memphis",
+                image: "https://static.wikia.nocookie.net/desimpsons/images/4/4d/MargeSimpson.png"
+            },
+            {
+                name: "Martin",
+                age: 40,
+                homeTown: "Ravensburg",
+                image: "https://static.simpsonswiki.com/images/thumb/6/65/Bart_Simpson.png/200px-Bart_Simpson.png"
+            },
+            {
+                name: "Helder",
+                age: 42,
+                homeTown: "Porto",
+                image: "https://upload.wikimedia.org/wikipedia/en/e/ec/Lisa_Simpson.png"
+            },
+            {
+                name: "Saron",
+                age: 22,
+                homeTown: "Hamburg",
+                image: "https://upload.wikimedia.org/wikipedia/en/9/9d/Maggie_Simpson.png"
+            },
+            {
+                name: "Lisa",
+                age: 30,
+                homeTown: "Berlin",
+                image: "https://upload.wikimedia.org/wikipedia/en/8/80/Moe_Szyslak.png"
+            }
+        ];
+        
+        const listNames = document.querySelector("#listNames");
+        const buttonLoadNames = document.querySelector("#buttonLoadNames");
+        
+        const spanName = document.querySelector("#spanName");
+        const spanAge = document.querySelector("#spanAge");
+        const spanHomeTown = document.querySelector("#spanHomeTown");
+
+        buttonLoadNames.addEventListener("click", function() {
+            listNames.innerHTML = "";
+            for (let i = 0; i < people.length; i++) {
+                listNames.innerHTML += `<li data-index="${i}">${people[i].name}</li>`;
+            }
+        });
+
+        listNames.addEventListener("click", function(event) {
+            if (event.target.tagName != "LI") {
+                return;
+            }
+
+            const i = event.target.dataset.index;
+            const clickedPerson = people[i];
+
+            spanName.innerText = clickedPerson.name;
+            spanAge.innerText = clickedPerson.age;
+            spanHomeTown.innerText = clickedPerson.homeTown;
+        })
+
+    </script>
+</body>
+</html>

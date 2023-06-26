@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="someElement">YAY</button>
+
+    <script>
+
+        const someElement = document.querySelector("#someElement");
+
+        function calculateRectangleArea(width, height) {
+            return width * height;
+        }
+
+        const calculateRectangleArea2 = function (width, height) {
+            return width * height;
+        }
+
+        const calculateRectangleArea3 = (width, height) => {
+            return width * height;
+        }
+
+        someElement.addEventListener("click", event => {
+            console.log(calculateRectangleArea(2, 2));
+            console.log(calculateRectangleArea(3, 3));
+            console.log(calculateRectangleArea(4, 4));
+        });
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // EXERCISE:
+        // CREATE A NEW ARRAY BASED ON NUMBERS
+        // BUT ONLY WITH NUMBERS SMALLER THAN 20...
+
+        const numbers = [4, 5, 12, 20, 21, 23, 5, 3, 10, 30, 17];
+        // const smallNumbers = [];
+        
+        // for (let i = 0; i < numbers.length; i++) {
+
+        //     if (numbers[i] < 20) {
+        //         // console.log(i + ": " + numbers[i]);
+        //         smallNumbers.push(numbers[i]);
+        //     }
+
+        // }
+
+        // console.log(numbers);
+        // console.log(smallNumbers);
+
+        // const smallNumbers2 = numbers.forEach(function(value) {
+        //     if (value < 20) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // });
+
+        const smallNumbers3 = numbers.filter(value => value < 20);
+
+        console.log(numbers);
+        console.log(smallNumbers3);
+        
+    </script>
+</body>
+</html>
