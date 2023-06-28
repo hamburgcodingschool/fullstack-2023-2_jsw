@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="pokeList"></ul>
+    <script>
+
+        const pokeList = document.querySelector("#pokeList");
+
+        // EXAMPLE 1
+        // const promiseResultOfFetch = fetch("https://pokeapi.co/api/v2/pokemon");
+        // promiseResultOfFetch.then(function(response) {
+            
+        //     const promiseResultOfJsonDecode = response.json();
+        //     promiseResultOfJsonDecode.then(function(result) {
+
+        //         console.log(result.results[0].name);
+        //     })
+
+        // });
+        
+        // EXAMPLE 2 => with chaining
+        // fetch("https://pokeapi.co/api/v2/pokemon")
+        //     .then(function(response) {
+        //         return response.json();
+        //     }).then(function(result) {
+        //         console.log(result);
+        //     });
+
+        // EXAMPLE 3 => with chaining and arrow functions
+        fetch("https://pokeapi.co/api/v2/pokemon")
+            .then(response => response.json())
+            .then(result => {
+                const pokemonArray = result.results;
+                
+                for (let i = 0; i < pokemonArray.length; i++) {
+                    console.log(pokemonArray[i]);
+                    pokeList.innerHTML += `<li>${pokemonArray[i].name}</li>`;
+                }
+
+            });
+
+    </script>
+</body>
+</html>
