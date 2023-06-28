@@ -6,8 +6,53 @@
     <title>Document</title>
 </head>
 <body>
-    <ul id="pokeList"></ul>
+    <ul id="pokeList">
+        <li>INITIAL VALUE</li>
+    </ul>
     <button id="loadFirstPage">Load First Page</button>
     <button id="loadSecondPage">Load Second Page</button>
+    <button id="loadThirdPage">Load Third Page</button>
+
+    <script>
+        const pokeList = document.querySelector("#pokeList");
+        const loadFirstPage = document.querySelector("#loadFirstPage");
+        const loadSecondPage = document.querySelector("#loadSecondPage");
+        const loadThirdPage = document.querySelector("#loadThirdPage");
+
+
+        function loadPokemon(url) {
+            console.log("GONNA CATCH EM ALL... OR AT LEAST 20...")
+            fetch(url)
+                .then(response => response.json())
+                .then(result => {
+                    const pokemonArray = result.results;
+                    pokeList.innerHTML = "";
+                    for (let i = 0; i < pokemonArray.length; i++) {
+                        console.log(pokemonArray[i]);
+                        pokeList.innerHTML += `<li>${pokemonArray[i].name}</li>`;
+                    }
+                });
+        }
+
+        function sumAndAlert(number1, number2) {
+            const result = number1 + number2;
+            alert(result);
+        }
+
+        loadFirstPage.addEventListener("click", function() {
+            loadPokemon("https://pokeapi.co/api/v2/pokemon");
+            // sumAndAlert(4, 5);
+        });
+
+        loadSecondPage.addEventListener("click", function() {
+            loadPokemon("https://pokeapi.co/api/v2/pokemon?offset=20");            
+            // sumAndAlert(40, 5);
+        });
+
+        loadThirdPage.addEventListener("click", function() {
+            loadPokemon("https://pokeapi.co/api/v2/pokemon?offset=40");            
+            // sumAndAlert(2, 2);
+        });
+    </script>
 </body>
 </html>
