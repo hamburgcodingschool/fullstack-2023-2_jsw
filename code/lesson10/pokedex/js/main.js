@@ -2,7 +2,11 @@ function loadPokemonArray(url) {
     fetch(url)
         .then(response => response.json())
         .then(result => {
+            prevPageURL = result.previous;
+            nextPageURL = result.next;
+
             pokemonArray = result.results;
+            
             console.log(pokemonArray);
             renderPokeList();
         });
@@ -13,6 +17,18 @@ function renderPokeList() {
     for (let i = 0; i < pokemonArray.length; i++) {
         // console.log(pokemonArray[i]);
         pokeList.innerHTML += `<li><a href="#" data-index="${i}">${pokemonArray[i].name}</a></li>`;
+    }
+
+    if (prevPageURL == null) {
+        buttonPrev.disabled = true;
+    } else {
+        buttonPrev.disabled = false;
+    }
+
+    if (nextPageURL == null) {
+        buttonNext.disabled = true;
+    } else {
+        buttonNext.disabled = false;
     }
 }
 
@@ -31,12 +47,18 @@ function renderPokeInfo(pokeInfo) {
 }
 
 const pokeList = document.querySelector("#pokeList");
+
+const buttonPrev = document.querySelector("#buttonPrev");
+const buttonNext = document.querySelector("#buttonNext");
+
 const pokeInfoImage = document.querySelector("#pokeInfoImage");
 const pokeInfoName = document.querySelector("#pokeInfoName");
 const pokeInfoWeight = document.querySelector("#pokeInfoWeight");
 const pokeInfoMove1 = document.querySelector("#pokeInfoMove1");
 
 let pokemonArray = [];
+let prevPageURL = null;
+let nextPageURL = null;
 
 pokeList.addEventListener("click", function(event) {
     if (event.target.tagName != "A") {
@@ -60,6 +82,14 @@ pokeList.addEventListener("click", function(event) {
         .then(result => {
             renderPokeInfo(result);            
         });
+});
+
+buttonPrev.addEventListener("click", function() {
+    loadPokemonArray(prevPageURL);
+});
+
+buttonNext.addEventListener("click", function() {
+    loadPokemonArray(nextPageURL);
 });
 
 loadPokemonArray("https://pokeapi.co/api/v2/pokemon");
