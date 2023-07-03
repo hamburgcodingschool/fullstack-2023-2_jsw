@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon</title>
+  </head>
+  <body>
+    <ul id="pokeList"></ul>
+    <button id="loadFirstPage">Load First Page</button>
+    <button id="loadSecondPage">Load Second Page</button>
+    <div>
+      <span id="spanAbility">Ability:</span> <br />
+      <span id="spanMove">Move:</span> <br />
+      <span id="spanNature">Nature:</span>
+    </div>
+    <script>
+      const pokeList = document.querySelector("#pokeList");
+      const loadFirstPage = document.querySelector("#loadFirstPage");
+      const loadSecondPage = document.querySelector("#loadSecondPage");
+      const spanAbility = document.querySelector("#spanAbility");
+      const spanMove = document.querySelector("#spanMove");
+      const spanNature = document.querySelector("#spanNature");
+      let pokeArray = [];
+      let infoArray = [];
+      let loadSecondPageclicked = false;
+      function loadPokemon(url) {
+        fetch(url)
+          .then((response) => response.json())
+          .then((result) => {
+            pokeArray = result.results;
+            pokeList.innerHTML = "";
+            for (i = 0; i < pokeArray.length; i++)
+              pokeList.innerHTML += `<li data-index="${i}">${pokeArray[i].name}</li>`;
+          });
+      }
+      loadFirstPage.addEventListener("click", function () {
+        loadPokemon("https://pokeapi.co/api/v2/pokemon");
+      });
+      loadSecondPage.addEventListener("click", function () {
+        loadPokemon("https://pokeapi.co/api/v2/pokemon?offset=20&limit=20");
+        loadSecondPageclicked = true;
+      });
+      function loadPokemonInfo(url, event) {
+        fetch(url)
+          .then((response) => response.json())
+          .then((result) => {
+            infoArray = result.results;
+            test(event);
+          });
+      }
+      pokeList.addEventListener("click", function (event) {
+        if (event.target.tagName != "LI") {
+          return;
+        }
+        
+        loadPokemonInfo("https://pokeapi.co/api/v2/ability/", event);
+
+
+        
+       
+      });
+
+      function test(event) {
+        const dataIndex = event.target.dataset.index;
+        const clickedPoke = infoArray[dataIndex];
+        console.log(infoArray);
+        console.log(dataIndex);
+        console.log(clickedPoke);
+        spanAbility.innerHTML = `Ability: ${clickedPoke.name}`;
+        loadPokemonInfo("https://pokeapi.co/api/v2/move/");
+        spanMove.innerHTML = `Move: ${clickedPoke.name}`;
+        loadPokemonInfo("https://pokeapi.co/api/v2/nature/");
+        spanNature.innerHTML = `Nature: ${clickedPoke.name}`;
+        if (loadSecondPage) {
+          loadPokemonInfo(
+            "https://pokeapi.co/api/v2/ability/?offset=20&limit=20"
+          );
+          spanAbility.innerHTML = `Ability:${clickedPoke.name}`;
+          loadPokemonInfo("https://pokeapi.co/api/v2/move/?offset=20&limit=20");
+          spanMove.innerHTML = `Move:${clickedPoke.name}`;
+          loadPokemonInfo(
+            "https://pokeapi.co/api/v2/nature/?offset=20&limit=20"
+          );
+          spanNature.innerHTML = `Nature:${clickedPoke.name}`;
+        }
+      }
+    </script>
+  </body>
+</html>
