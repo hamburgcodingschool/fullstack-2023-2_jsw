@@ -3,6 +3,7 @@ function loadPokemonArray(url) {
         .then(response => response.json())
         .then(result => {
             pokemonArray = result.results;
+            console.log(pokemonArray);
             renderPokeList();
         });
 }
@@ -43,11 +44,17 @@ pokeList.addEventListener("click", function(event) {
     }
     event.preventDefault();
     
+    // Let's figure out which link was clicked
+    // So we can match it to the Array
     const index = event.target.dataset.index;
+
+    // now that we have the index
+    // we can use it to get the url from the array
     const url = pokemonArray[index].url;
+    console.log(url);
 
     renderInfoLoading();
-    
+
     fetch(url)
         .then(response => response.json())
         .then(result => {
